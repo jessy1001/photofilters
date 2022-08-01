@@ -23,7 +23,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:photofilters/photofilters.dart';
-import 'package:image/image.dart' as imageLib;
 import 'package:image_picker/image_picker.dart';
 
 void main() => runApp(new MaterialApp(home: MyApp()));

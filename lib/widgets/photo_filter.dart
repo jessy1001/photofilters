@@ -25,13 +25,11 @@ class PhotoFilter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<int>>(
-      future: compute(
-          applyFilter,
-          <String, dynamic>{
-            "filter": filter,
-            "image": image,
-            "filename": filename,
-          }),
+      future: compute(applyFilter, <String, dynamic>{
+        "filter": filter,
+        "image": image,
+        "filename": filename,
+      }),
       builder: (BuildContext context, AsyncSnapshot<List<int>> snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.none:
@@ -62,6 +60,8 @@ class PhotoFilterSelector extends StatefulWidget {
   final BoxFit fit;
   final String filename;
   final bool circleShape;
+
+  // var primaryColor = Color(0xff8338EC);
 
   const PhotoFilterSelector({
     Key? key,
@@ -106,7 +106,7 @@ class _PhotoFilterSelectorState extends State<PhotoFilterSelector> {
       child: Scaffold(
         appBar: AppBar(
           title: widget.title,
-          backgroundColor: widget.appBarColor,
+          backgroundColor: Color(0xff8338EC),
           actions: <Widget>[
             loading
                 ? Container()
@@ -187,13 +187,11 @@ class _PhotoFilterSelectorState extends State<PhotoFilterSelector> {
       Filter filter, imageLib.Image? image, String? filename) {
     if (cachedFilters[filter.name] == null) {
       return FutureBuilder<List<int>>(
-        future: compute(
-            applyFilter ,
-            <String, dynamic>{
-              "filter": filter,
-              "image": image,
-              "filename": filename,
-            }),
+        future: compute(applyFilter, <String, dynamic>{
+          "filter": filter,
+          "image": image,
+          "filename": filename,
+        }),
         builder: (BuildContext context, AsyncSnapshot<List<int>> snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
@@ -253,13 +251,11 @@ class _PhotoFilterSelectorState extends State<PhotoFilterSelector> {
       Filter? filter, imageLib.Image? image, String? filename) {
     if (cachedFilters[filter?.name ?? "_"] == null) {
       return FutureBuilder<List<int>>(
-        future: compute(
-            applyFilter,
-            <String, dynamic>{
-              "filter": filter,
-              "image": image,
-              "filename": filename,
-            }),
+        future: compute(applyFilter, <String, dynamic>{
+          "filter": filter,
+          "image": image,
+          "filename": filename,
+        }),
         builder: (BuildContext context, AsyncSnapshot<List<int>> snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
